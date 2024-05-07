@@ -1,0 +1,24 @@
+{% extends 'layout/app-layout.html' %}
+{% block content %}
+<div>
+    <br>
+    <br>
+    <table class="table table-bordered">
+        <tr><th>ID</th>
+            <th>name</th>
+            <th>description</th>
+            <th>price</th>
+        </tr>
+        {% for products in records %}
+        <tr>
+            <td>{{products.id}}</td>
+            <td>{{products.medicine_name}}</td>
+            <td>{{products.medicine_description}}</td>
+            <td>{{products.medicine_price}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    
+</div>
+{% endblock %}

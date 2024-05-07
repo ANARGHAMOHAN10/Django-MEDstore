@@ -1,0 +1,17 @@
+{% extends 'layout/app-layout.html' %}
+{% block content %}
+<div class="container bg-light shadow-md p-5">
+    <h3>Are you sure you want to delete this record?</h3>
+
+    <p><strong>ID:</strong> {{ record.id }}</p>
+    <p><strong>Medicine Name:</strong> {{ record.medicine_name }}</p>
+    <p><strong>Description:</strong> {{ record.medicine_description }}</p>
+    <p><strong>Price:</strong> {{ record.medicine_price }}</p>
+
+    <form method="POST" action="{% url 'delete' record.id %}">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Yes, Delete</button>
+        <a href="{% url 'dashboard' %}" class="btn btn-secondary">No, Cancel</a>
+    </form>
+</div>
+{% endblock %}
